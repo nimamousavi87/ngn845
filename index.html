@@ -15,9 +15,7 @@
     :root {
       --bg: #080808;
       --panel: #111111;
-      --panel2: #171717;
       --red: #ff303b;
-      --red2: #b81725;
       --white: #f5f5f5;
       --muted: #999;
       --border: rgba(255,255,255,.09);
@@ -29,9 +27,7 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background:
@@ -42,14 +38,8 @@
       min-height: 100vh;
     }
 
-    button, a {
-      font-family: inherit;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    button, a { font-family: inherit; }
+    a { color: inherit; text-decoration: none; }
 
     .container {
       width: min(1120px, 92%);
@@ -116,9 +106,7 @@
       animation: appear .35s ease;
     }
 
-    .page.active {
-      display: block;
-    }
+    .page.active { display: block; }
 
     @keyframes appear {
       from { opacity: 0; transform: translateY(8px); }
@@ -188,9 +176,7 @@
       margin-bottom: 10px;
     }
 
-    .section-title h2 span {
-      color: var(--red);
-    }
+    .section-title h2 span { color: var(--red); }
 
     .section-title p {
       color: var(--muted);
@@ -264,9 +250,7 @@
       box-shadow: 0 18px 45px rgba(255,48,59,.09);
     }
 
-    .plan.featured {
-      border-color: rgba(255,48,59,.45);
-    }
+    .plan.featured { border-color: rgba(255,48,59,.45); }
 
     .plan-glow {
       position: absolute;
@@ -457,6 +441,45 @@
       font-weight: 600;
     }
 
+    /* TELEGRAM CHANNEL - VPN PAGE ONLY */
+
+    .telegram-channel {
+      margin-top: 35px;
+      padding: 28px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #151515, #100d0e);
+      border: 1px solid rgba(255,48,59,.25);
+      border-radius: 18px;
+    }
+
+    .telegram-channel h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .telegram-channel p {
+      color: #999;
+      font-size: 13px;
+      line-height: 2;
+      margin-bottom: 18px;
+    }
+
+    .telegram-channel a {
+      display: inline-block;
+      background: #ff303b;
+      color: white;
+      padding: 11px 25px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .telegram-channel a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255,48,59,.3);
+    }
+
     /* EMPTY PAGES */
 
     .empty-state {
@@ -517,9 +540,7 @@
         font-size: 12px;
       }
 
-      .plans {
-        grid-template-columns: 1fr;
-      }
+      .plans { grid-template-columns: 1fr; }
 
       .service-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -530,53 +551,13 @@
         text-align: center;
       }
 
-      .page {
-        padding-top: 35px;
-      }
+      .page { padding-top: 35px; }
     }
 
     @media(max-width: 360px) {
-      nav button {
-        padding: 7px 9px;
-      }
-
-      .plan {
-        padding: 22px;
-      }
+      nav button { padding: 7px 9px; }
+      .plan { padding: 22px; }
     }
-
-    
-.telegram-channel {
-  margin-top: 35px;
-  padding: 28px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #151515, #100d0e);
-  border: 1px solid rgba(255,48,59,.25);
-  border-radius: 18px;
-}
-
-.telegram-channel h3 {
-  font-size: 19px;
-  margin-bottom: 10px;
-}
-
-.telegram-channel p {
-  color: #999;
-  font-size: 13px;
-  line-height: 2;
-  margin-bottom: 18px;
-}
-
-.telegram-channel a {
-  display: inline-block;
-  background: #ff303b;
-  color: white;
-  padding: 11px 25px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 700;
-}
-
   </style>
 </head>
 
@@ -638,7 +619,6 @@
 
       <div class="vpn-intro">
         <div class="vpn-intro-icon">
-          <!-- Shield illustration -->
           <svg viewBox="0 0 64 64" fill="none">
             <path d="M32 5 53 13v16c0 14-9 24-21 30C20 53 11 43 11 29V13L32 5Z"
               stroke="white" stroke-width="3" stroke-linejoin="round"/>
@@ -652,7 +632,7 @@
           <h3>اتصال هوشمند، تجربه‌ای متفاوت</h3>
           <p>
             وقتی همه‌جا محدودیت هست، NGNVPN برای اتصال کنارته؛
-  پایدار، سریع و قابل‌اعتماد.
+            پایدار، سریع و قابل‌اعتماد.
           </p>
         </div>
       </div>
@@ -669,7 +649,6 @@
           </div>
 
           <div class="plan-visual">
-            <!-- Data storage illustration -->
             <svg viewBox="0 0 100 100" fill="none">
               <ellipse cx="50" cy="24" rx="29" ry="11"
                 fill="#ff303b" fill-opacity=".2" stroke="#ff5963" stroke-width="2"/>
@@ -750,7 +729,6 @@
           </div>
 
           <div class="plan-visual">
-            <!-- Globe illustration -->
             <svg viewBox="0 0 100 100" fill="none">
               <circle cx="50" cy="50" r="34"
                 stroke="#ff5963" stroke-width="2.5"/>
@@ -868,19 +846,20 @@
         </div>
 
       </div>
+
+      <!-- TELEGRAM CHANNEL - ONLY IN VPN PAGE -->
+      <div class="telegram-channel">
+        <h3>همراه ما در تلگرام باشید</h3>
+        <p>
+          برای اطلاع از آخرین اخبار، تخفیف‌ها و اطلاعیه‌های NGNVPN
+          به کانال تلگرام ما بپیوندید.
+        </p>
+        <a href="https://t.me/ngnvpn" target="_blank" rel="noopener noreferrer">
+          عضویت در کانال @ngnvpn
+        </a>
+      </div>
+
     </section>
-    
-<div class="telegram-channel">
-  <h3>همراه ما در تلگرام باشید</h3>
-  <p>
-    برای اطلاع از آخرین اخبار، تخفیف‌ها و اطلاعیه‌های NGNVPN
-    به کانال تلگرام ما بپیوندید.
-  </p>
-  <a href="https://t.me/ngnvpn" target="_blank" rel="noopener noreferrer">
-    عضویت در کانال @ngnvpn
-  </a>
-</div>
-    
 
   </main>
 
