@@ -2,411 +2,686 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08090d">
-  <meta name="description" content="NGN845؛ دنیای فناوری، هوش مصنوعی، آموزش دیجیتال و راهکارهای هوشمند.">
-  <meta name="keywords" content="NGN845, فناوری, هوش مصنوعی, تکنولوژی, آموزش">
-  <title>NGN845 | آینده از اینجا شروع می‌شود</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090d">
+<title>NGN845 | Technology Platform</title>
+<meta name="description" content="NGN845 - پروژه‌ها و خدمات دیجیتال">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+:root {
+  --bg: #09090d;
+  --card: #111118;
+  --red: #ff304f;
+  --red2: #bd1736;
+  --text: #f5f5f7;
+  --muted: #92929f;
+  --border: rgba(255,255,255,.09);
+}
 
-    :root {
-      --bg: #08090d;
-      --surface: #11131b;
-      --red: #ff304f;
-      --text: #f5f5f7;
-      --muted: #999eae;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255,48,79,.10), transparent 32%),
+    radial-gradient(circle at 85% 70%, rgba(115,20,45,.12), transparent 35%);
+}
 
-    body {
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.9;
-      overflow-x: hidden;
-    }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
 
-    .container {
-      width: min(1100px, 90%);
-      margin: auto;
-    }
+/* HEADER */
 
-    /* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,13,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(8,9,13,.88);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid #ffffff12;
-    }
+.navbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-    nav {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
+.logo {
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
 
-    .logo {
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
+.logo span {
+  color: var(--red);
+}
 
-    .logo span {
-      color: var(--red);
-    }
+.menu {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 27px;
-      list-style: none;
-      font-size: 14px;
-      color: var(--muted);
-    }
+.menu button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  padding: 10px 17px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .25s;
+}
 
-    .nav-links a:hover {
-      color: var(--red);
-    }
+.menu button:hover,
+.menu button.active {
+  color: white;
+  background: rgba(255,48,79,.12);
+  border-color: rgba(255,48,79,.25);
+}
 
-    /* Hero */
+.menu button.active {
+  color: var(--red);
+}
 
-    .hero {
-      min-height: 570px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 50% 35%, #ff304f1c, transparent 55%);
-    }
+.status {
+  font-size: 11px;
+  color: #ff647a;
+  background: rgba(255,48,79,.10);
+  padding: 7px 11px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,48,79,.2);
+}
 
-    .hero-content {
-      width: 100%;
-      padding: 100px 0;
-      position: relative;
-      z-index: 1;
-    }
+/* PAGE */
 
-    .tag {
-      display: inline-block;
-      border: 1px solid #ff304f66;
-      color: #ff7185;
-      border-radius: 50px;
-      padding: 5px 18px;
-      font-size: 13px;
-      margin-bottom: 25px;
-      background: #ff304f0d;
-    }
+.page {
+  display: none;
+  animation: appear .35s ease;
+  padding: 55px 0 80px;
+}
 
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 82px);
-      font-weight: 900;
-      line-height: 1.35;
-      margin-bottom: 15px;
-    }
+.page.active {
+  display: block;
+}
 
-    .hero h1 span {
-      color: var(--red);
-      text-shadow: 0 0 35px #ff304f66;
-    }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .hero p {
-      color: var(--muted);
-      max-width: 620px;
-      margin: 15px auto 30px;
-      font-size: 16px;
-    }
+/* VPN HERO */
 
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: var(--red);
-      border-radius: 10px;
-      font-weight: 700;
-      transition: .3s;
-      box-shadow: 0 0 25px #ff304f33;
-    }
+.hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
 
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 35px #ff304f77;
-    }
+.hero-tag {
+  display: inline-block;
+  color: var(--red);
+  border: 1px solid rgba(255,48,79,.3);
+  background: rgba(255,48,79,.08);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
 
-    /* Sections */
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 900;
+  margin-bottom: 15px;
+}
 
-    section {
-      padding: 85px 0;
-    }
+.hero h1 span {
+  color: var(--red);
+}
 
-    .section-title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
+.hero p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2.2;
+}
 
-    .section-title span {
-      color: var(--red);
-    }
+.globe {
+  font-size: 38px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 0 15px rgba(255,48,79,.4));
+}
 
-    .section-desc {
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 42px;
-      font-size: 14px;
-    }
+/* PLANS */
 
-    /* Cards */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 850px;
+  margin: auto;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+.plan {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #171720, #101016);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px;
+  transition: .3s;
+}
 
-    .card {
-      background: linear-gradient(145deg, #151722, #0d0f16);
-      border: 1px solid #ffffff12;
-      border-radius: 18px;
-      padding: 30px 22px;
-      transition: .3s;
-    }
+.plan:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255,48,79,.5);
+  box-shadow: 0 15px 45px rgba(255,48,79,.10);
+}
 
-    .card:hover {
-      transform: translateY(-7px);
-      border-color: #ff304f77;
-    }
+.plan::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 170px;
+  height: 170px;
+  background: rgba(255,48,79,.08);
+  filter: blur(40px);
+  border-radius: 50%;
+}
 
-    .card .icon {
-      font-size: 34px;
-      margin-bottom: 12px;
-    }
+.plan-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
 
-    .card h3 {
-      font-size: 19px;
-      margin-bottom: 10px;
-    }
+.plan-number {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--red);
+  font-weight: 700;
+}
 
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
+.plan-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+  background: rgba(255,48,79,.10);
+  border: 1px solid rgba(255,48,79,.2);
+}
 
-    /* About */
+.plan h2 {
+  font-size: 23px;
+  margin: 22px 0 8px;
+}
 
-    .about {
-      background: #0d0f16;
-      border-top: 1px solid #ffffff0c;
-      border-bottom: 1px solid #ffffff0c;
-    }
+.plan-desc {
+  font-size: 13px;
+  color: var(--muted);
+}
 
-    .about-box {
-      max-width: 800px;
-      text-align: center;
-      margin: auto;
-    }
+.price {
+  margin: 24px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
 
-    .about-box p {
-      color: var(--muted);
-      margin-top: 20px;
-    }
+.price strong {
+  font-size: 33px;
+  font-weight: 900;
+  color: white;
+}
 
-    /* Contact */
+.price span {
+  color: var(--muted);
+  font-size: 12px;
+}
 
-    .contact {
-      text-align: center;
-    }
+.features {
+  list-style: none;
+  border-top: 1px solid var(--border);
+  padding-top: 19px;
+  display: grid;
+  gap: 14px;
+}
 
-    .contact p {
-      color: var(--muted);
-      margin: 15px 0 25px;
-    }
+.features li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: #d0d0d9;
+}
 
-    /* Footer */
+.check {
+  color: #4be1a0;
+  font-size: 16px;
+  font-weight: 900;
+}
 
-    footer {
-      padding: 25px 0;
-      border-top: 1px solid #ffffff12;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
+.buy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 13px;
+  margin-top: 27px;
+}
 
-    footer strong {
-      color: var(--red);
-    }
+.buy p {
+  font-size: 12px;
+  color: var(--muted);
+}
 
-    @media(max-width: 750px) {
-      .nav-links {
-        gap: 12px;
-        font-size: 12px;
-      }
+.buy-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 12px;
+  border-radius: 13px;
+  background: linear-gradient(100deg, #ff304f, #c8173b);
+  color: white;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 14px;
+  transition: .25s;
+  box-shadow: 0 8px 25px rgba(255,48,79,.16);
+}
 
-      .cards {
-        grid-template-columns: 1fr;
-      }
+.buy-btn:hover {
+  transform: scale(1.025);
+  box-shadow: 0 10px 30px rgba(255,48,79,.3);
+}
 
-      .hero {
-        min-height: 500px;
-      }
+.buy-btn.secondary {
+  background: linear-gradient(100deg, #272735, #191923);
+  border: 1px solid rgba(255,255,255,.13);
+  box-shadow: none;
+}
 
-      .hero p {
-        font-size: 14px;
-      }
+.buy-btn.secondary:hover {
+  border-color: var(--red);
+}
 
-      .logo {
-        font-size: 22px;
-      }
-    }
+/* FEATURES */
 
-    @media(max-width: 390px) {
-      nav {
-        flex-direction: column;
-        padding: 12px 0;
-      }
-    }
-  </style>
+.features-section {
+  margin-top: 75px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 25px;
+  margin-bottom: 9px;
+}
+
+.section-title p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.service-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.service-item {
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 24px 12px;
+  text-align: center;
+  transition: .25s;
+}
+
+.service-item:hover {
+  border-color: rgba(255,48,79,.35);
+  background: rgba(255,48,79,.04);
+}
+
+.service-item .icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.service-item h3 {
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+
+.service-item p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* EMPTY PAGES */
+
+.empty {
+  min-height: 55vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.empty-content {
+  max-width: 450px;
+}
+
+.empty-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(255,48,79,.3));
+}
+
+.empty h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.empty p {
+  color: var(--muted);
+  line-height: 2;
+  font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 25px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer strong {
+  color: var(--red);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 700px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 13px 0;
+    gap: 12px;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .menu button {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .status {
+    display: none;
+  }
+
+  .plans {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .service-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .page {
+    padding-top: 40px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="container">
-    <nav>
-      <a href="#" class="logo">NGN<span>845</span></a>
+  <div class="container navbar">
+    <a href="#" class="logo">NGN<span>845</span></a>
 
-      <ul class="nav-links">
-        <li><a href="#home">خانه</a></li>
-        <li><a href="#services">حوزه فعالیت</a></li>
-        <li><a href="#about">درباره ما</a></li>
-        <li><a href="#contact">ارتباط</a></li>
-      </ul>
+    <nav class="menu">
+      <button class="active" onclick="showPage('home',this)">خانه</button>
+      <button onclick="showPage('projects',this)">پروژه‌ها</button>
+      <button onclick="showPage('vpn',this)">خرید VPN</button>
     </nav>
+
+    <div class="status">● ONLINE PLATFORM</div>
   </div>
 </header>
 
-<main>
+<main class="container">
 
-  <section class="hero" id="home">
-    <div class="container hero-content">
-      <span class="tag">WELCOME TO NGN845</span>
-
-      <h1>
-        دنیای <span>فناوری</span><br>
-        بدون محدودیت
-      </h1>
-
-      <p>
-        به NGN845 خوش آمدید؛ فضایی برای کشف دنیای تکنولوژی،
-        هوش مصنوعی، آموزش دیجیتال و ایده‌های نوآورانه.
-      </p>
-
-      <a href="#services" class="btn">کشف دنیای ما</a>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-
-      <h2 class="section-title">حوزه‌های <span>فعالیت</span></h2>
-      <p class="section-desc">
-        فناوری را ساده‌تر، کاربردی‌تر و جذاب‌تر تجربه کنید.
-      </p>
-
-      <div class="cards">
-
-        <article class="card">
-          <div class="icon">💻</div>
-          <h3>تکنولوژی</h3>
-          <p>
-            آشنایی با دنیای کامپیوتر، نرم‌افزارها،
-            ابزارهای دیجیتال و تازه‌های فناوری.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🤖</div>
-          <h3>هوش مصنوعی</h3>
-          <p>
-            کشف ابزارهای هوشمند و یادگیری روش‌های
-            استفاده از هوش مصنوعی در زندگی دیجیتال.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🚀</div>
-          <h3>آموزش دیجیتال</h3>
-          <p>
-            آموزش‌های کاربردی، ترفندها و راهکارهایی
-            برای استفاده بهتر از دنیای دیجیتال.
-          </p>
-        </article>
-
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <div class="empty">
+      <div class="empty-content">
+        <div class="empty-icon">⌘</div>
+        <h1>به NGN845 خوش آمدید</h1>
+        <p>این بخش در حال آماده‌سازی است.</p>
       </div>
     </div>
   </section>
 
-  <section class="about" id="about">
-    <div class="container about-box">
-
-      <h2 class="section-title">درباره <span>NGN845</span></h2>
-
-      <p>
-        NGN845 با هدف معرفی فناوری‌های جدید، انتشار آموزش‌های
-        کاربردی و آشنایی با ابزارهای نوین دیجیتال ایجاد شده است.
-        ما باور داریم که یادگیری و خلاقیت می‌توانند مسیر آینده را
-        تغییر دهند.
-      </p>
-
+  <!-- PROJECTS -->
+  <section id="projects" class="page">
+    <div class="empty">
+      <div class="empty-content">
+        <div class="empty-icon">💻</div>
+        <h1>پروژه‌های NGN845</h1>
+        <p>پروژه‌های ما به‌زودی در این قسمت معرفی خواهند شد.</p>
+      </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
-    <div class="container">
+  <!-- VPN -->
+  <section id="vpn" class="page">
 
-      <h2 class="section-title">با ما در <span>ارتباط</span> باشید</h2>
-
+    <div class="hero">
+      <div class="globe">🌍</div>
+      <div class="hero-tag">NGN845 / DIGITAL SERVICES</div>
+      <h1>خرید <span>VPN</span></h1>
       <p>
-        برای همکاری، پیشنهاد یا ارتباط با مجموعه NGN845
-        می‌توانید از راه‌های ارتباطی ما استفاده کنید.
+        سرویس‌های مولتی‌لوکیشن NGNVPN با پلن‌های متنوع
+        برای انتخاب متناسب با نیاز شما.
       </p>
+    </div>
 
-      <a href="mailto:info@ngn845.ir" class="btn">
-        ارسال ایمیل
-      </a>
+    <div class="plans">
+
+      <!-- PLAN 01 -->
+      <article class="plan">
+        <div class="plan-top">
+          <span class="plan-number">PLAN 01 / VOLUME</span>
+          <div class="plan-icon">📦</div>
+        </div>
+
+        <h2>پلن حجمی</h2>
+        <p class="plan-desc">۱۰۰ گیگابایت حجم مصرفی</p>
+
+        <div class="price">
+          <strong>۲۵۰,۰۰۰</strong>
+          <span>تومان / یک ماه</span>
+        </div>
+
+        <ul class="features">
+          <li><span class="check">✓</span> حجم ۱۰۰ گیگابایت</li>
+          <li><span class="check">✓</span> تعداد کاربران نامحدود</li>
+          <li><span class="check">✓</span> اعتبار یک ماهه</li>
+          <li><span class="check">✓</span> لوکیشن‌های متنوع</li>
+        </ul>
+
+        <div class="buy">
+          <p>برای اطلاعات بیشتر درباره این پلن:</p>
+          <a class="buy-btn" href="https://t.me/ngnvpn_bot" target="_blank" rel="noopener noreferrer">
+            🤖 مشاهده ربات NGNVPN
+          </a>
+        </div>
+      </article>
+
+      <!-- PLAN 02 -->
+      <article class="plan">
+        <div class="plan-top">
+          <span class="plan-number">PLAN 02 / UNLIMITED</span>
+          <div class="plan-icon">♾️</div>
+        </div>
+
+        <h2>پلن نامحدود</h2>
+        <p class="plan-desc">بدون محدودیت حجم مصرفی</p>
+
+        <div class="price">
+          <strong>۳۵۰,۰۰۰</strong>
+          <span>تومان / یک ماه</span>
+        </div>
+
+        <ul class="features">
+          <li><span class="check">✓</span> حجم مصرفی نامحدود</li>
+          <li><span class="check">✓</span> مخصوص یک کاربر</li>
+          <li><span class="check">✓</span> اعتبار یک ماهه</li>
+          <li><span class="check">✓</span> لوکیشن‌های متنوع</li>
+        </ul>
+
+        <div class="buy">
+          <p>برای اطلاعات بیشتر درباره این پلن:</p>
+          <a class="buy-btn secondary" href="https://t.me/nima_001" target="_blank" rel="noopener noreferrer">
+            💬 ارتباط با پشتیبانی
+          </a>
+        </div>
+      </article>
 
     </div>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+
+      <div class="section-title">
+        <h2>ویژگی‌های سرویس</h2>
+        <p>امکانات و خدمات ارائه‌شده برای کاربران</p>
+      </div>
+
+      <div class="service-features">
+
+        <div class="service-item">
+          <div class="icon">🌐</div>
+          <h3>لوکیشن‌های متنوع</h3>
+          <p>انتخاب موقعیت‌های مختلف</p>
+        </div>
+
+        <div class="service-item">
+          <div class="icon">⚡</div>
+          <h3>سرعت بالا</h3>
+          <p>تجربه اتصال سریع</p>
+        </div>
+
+        <div class="service-item">
+          <div class="icon">🔒</div>
+          <h3>اتصال پایدار</h3>
+          <p>توجه به کیفیت ارتباط</p>
+        </div>
+
+        <div class="service-item">
+          <div class="icon">🎧</div>
+          <h3>ارتباط و راهنمایی</h3>
+          <p>پاسخگویی و پشتیبانی</p>
+        </div>
+
+      </div>
+    </section>
+
   </section>
 
 </main>
 
 <footer>
   <div class="container">
-    © 2026 تمامی حقوق برای <strong>NGN845</strong> محفوظ است.
+    © 2026 <strong>NGN845</strong> — تمامی حقوق محفوظ است.
   </div>
 </footer>
+
+<script>
+function showPage(pageId, button) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  document.querySelectorAll('.menu button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  document.getElementById(pageId).classList.add('active');
+  button.classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+  history.replaceState(null, '', '#' + pageId);
+}
+
+// باز کردن مستقیم هر بخش با آدرس
+window.addEventListener('DOMContentLoaded', () => {
+  const pageId = location.hash.replace('#', '');
+  const validPages = ['home', 'projects', 'vpn'];
+
+  if (validPages.includes(pageId)) {
+    const buttons = document.querySelectorAll('.menu button');
+    const index = validPages.indexOf(pageId);
+
+    showPage(pageId, buttons[index]);
+  }
+});
+</script>
 
 </body>
 </html>
