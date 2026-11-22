@@ -2,686 +2,882 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09090d">
-<title>NGN845 | Technology Platform</title>
-<meta name="description" content="NGN845 - پروژه‌ها و خدمات دیجیتال">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
-
-:root {
-  --bg: #09090d;
-  --card: #111118;
-  --red: #ff304f;
-  --red2: #bd1736;
-  --text: #f5f5f7;
-  --muted: #92929f;
-  --border: rgba(255,255,255,.09);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Vazirmatn', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 15% 15%, rgba(255,48,79,.10), transparent 32%),
-    radial-gradient(circle at 85% 70%, rgba(115,20,45,.12), transparent 35%);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.container {
-  width: min(1100px, 92%);
-  margin: auto;
-}
-
-/* HEADER */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(9,9,13,.88);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-  min-height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.logo {
-  font-size: 27px;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
-.logo span {
-  color: var(--red);
-}
-
-.menu {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.menu button {
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--muted);
-  font-family: inherit;
-  padding: 10px 17px;
-  border-radius: 12px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: .25s;
-}
-
-.menu button:hover,
-.menu button.active {
-  color: white;
-  background: rgba(255,48,79,.12);
-  border-color: rgba(255,48,79,.25);
-}
-
-.menu button.active {
-  color: var(--red);
-}
-
-.status {
-  font-size: 11px;
-  color: #ff647a;
-  background: rgba(255,48,79,.10);
-  padding: 7px 11px;
-  border-radius: 30px;
-  border: 1px solid rgba(255,48,79,.2);
-}
-
-/* PAGE */
-
-.page {
-  display: none;
-  animation: appear .35s ease;
-  padding: 55px 0 80px;
-}
-
-.page.active {
-  display: block;
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* VPN HERO */
-
-.hero {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.hero-tag {
-  display: inline-block;
-  color: var(--red);
-  border: 1px solid rgba(255,48,79,.3);
-  background: rgba(255,48,79,.08);
-  padding: 8px 16px;
-  border-radius: 30px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-}
-
-.hero h1 {
-  font-size: clamp(30px, 5vw, 48px);
-  font-weight: 900;
-  margin-bottom: 15px;
-}
-
-.hero h1 span {
-  color: var(--red);
-}
-
-.hero p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 2.2;
-}
-
-.globe {
-  font-size: 38px;
-  margin-bottom: 14px;
-  filter: drop-shadow(0 0 15px rgba(255,48,79,.4));
-}
-
-/* PLANS */
-
-.plans {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-  max-width: 850px;
-  margin: auto;
-}
-
-.plan {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(145deg, #171720, #101016);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 28px;
-  transition: .3s;
-}
-
-.plan:hover {
-  transform: translateY(-7px);
-  border-color: rgba(255,48,79,.5);
-  box-shadow: 0 15px 45px rgba(255,48,79,.10);
-}
-
-.plan::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  left: -80px;
-  width: 170px;
-  height: 170px;
-  background: rgba(255,48,79,.08);
-  filter: blur(40px);
-  border-radius: 50%;
-}
-
-.plan-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.plan-number {
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--red);
-  font-weight: 700;
-}
-
-.plan-icon {
-  width: 55px;
-  height: 55px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  font-size: 27px;
-  background: rgba(255,48,79,.10);
-  border: 1px solid rgba(255,48,79,.2);
-}
-
-.plan h2 {
-  font-size: 23px;
-  margin: 22px 0 8px;
-}
-
-.plan-desc {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.price {
-  margin: 24px 0;
-  display: flex;
-  align-items: baseline;
-  gap: 7px;
-}
-
-.price strong {
-  font-size: 33px;
-  font-weight: 900;
-  color: white;
-}
-
-.price span {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.features {
-  list-style: none;
-  border-top: 1px solid var(--border);
-  padding-top: 19px;
-  display: grid;
-  gap: 14px;
-}
-
-.features li {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 13px;
-  color: #d0d0d9;
-}
-
-.check {
-  color: #4be1a0;
-  font-size: 16px;
-  font-weight: 900;
-}
-
-.buy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 13px;
-  margin-top: 27px;
-}
-
-.buy p {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.buy-btn {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  padding: 14px 12px;
-  border-radius: 13px;
-  background: linear-gradient(100deg, #ff304f, #c8173b);
-  color: white;
-  font-family: inherit;
-  font-weight: 800;
-  font-size: 14px;
-  transition: .25s;
-  box-shadow: 0 8px 25px rgba(255,48,79,.16);
-}
-
-.buy-btn:hover {
-  transform: scale(1.025);
-  box-shadow: 0 10px 30px rgba(255,48,79,.3);
-}
-
-.buy-btn.secondary {
-  background: linear-gradient(100deg, #272735, #191923);
-  border: 1px solid rgba(255,255,255,.13);
-  box-shadow: none;
-}
-
-.buy-btn.secondary:hover {
-  border-color: var(--red);
-}
-
-/* FEATURES */
-
-.features-section {
-  margin-top: 75px;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.section-title h2 {
-  font-size: 25px;
-  margin-bottom: 9px;
-}
-
-.section-title p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.service-features {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}
-
-.service-item {
-  background: rgba(255,255,255,.025);
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  padding: 24px 12px;
-  text-align: center;
-  transition: .25s;
-}
-
-.service-item:hover {
-  border-color: rgba(255,48,79,.35);
-  background: rgba(255,48,79,.04);
-}
-
-.service-item .icon {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.service-item h3 {
-  font-size: 13px;
-  margin-bottom: 7px;
-}
-
-.service-item p {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-/* EMPTY PAGES */
-
-.empty {
-  min-height: 55vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
-}
-
-.empty-content {
-  max-width: 450px;
-}
-
-.empty-icon {
-  font-size: 60px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 20px rgba(255,48,79,.3));
-}
-
-.empty h1 {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.empty p {
-  color: var(--muted);
-  line-height: 2;
-  font-size: 14px;
-}
-
-/* FOOTER */
-
-footer {
-  border-top: 1px solid var(--border);
-  padding: 25px 0;
-  text-align: center;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-footer strong {
-  color: var(--red);
-}
-
-/* RESPONSIVE */
-
-@media(max-width: 700px) {
-  .navbar {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 13px 0;
-    gap: 12px;
-  }
-
-  .logo {
-    width: 100%;
-    text-align: center;
-  }
-
-  .menu {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .menu button {
-    padding: 9px 13px;
-    font-size: 12px;
-  }
-
-  .status {
-    display: none;
-  }
-
-  .plans {
-    grid-template-columns: 1fr;
-    max-width: 420px;
-  }
-
-  .service-features {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .page {
-    padding-top: 40px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>NGN845 | Technology & VPN</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #111111;
+      --panel2: #171717;
+      --red: #ff303b;
+      --red2: #b81725;
+      --white: #f5f5f5;
+      --muted: #999;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 50% -20%, rgba(255,35,50,.13), transparent 55%),
+        var(--bg);
+      color: var(--white);
+      font-family: 'Vazirmatn', sans-serif;
+      min-height: 100vh;
+    }
+
+    button, a {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,8,8,.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--red);
+      text-shadow: 0 0 22px rgba(255,48,59,.4);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav button {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #aaa;
+      padding: 10px 17px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    nav button:hover,
+    nav button.active {
+      color: white;
+      background: rgba(255,48,59,.1);
+      border-color: rgba(255,48,59,.25);
+    }
+
+    /* PAGES */
+
+    .page {
+      display: none;
+      min-height: 72vh;
+      padding: 55px 0 75px;
+      animation: appear .35s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* HOME */
+
+    .hero {
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 35px 15px;
+    }
+
+    .hero-label {
+      color: var(--red);
+      border: 1px solid rgba(255,48,59,.3);
+      background: rgba(255,48,59,.07);
+      padding: 7px 17px;
+      border-radius: 30px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 8vw, 76px);
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+      text-shadow: 0 0 35px rgba(255,48,59,.35);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 2;
+    }
+
+    .hero-line {
+      width: 75px;
+      height: 3px;
+      border-radius: 10px;
+      background: var(--red);
+      margin-top: 28px;
+      box-shadow: 0 0 20px var(--red);
+    }
+
+    /* SECTION TITLES */
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title h2 {
+      font-size: 29px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 span {
+      color: var(--red);
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* VPN INTRO */
+
+    .vpn-intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      background: linear-gradient(120deg, #171010, #101010);
+      border: 1px solid rgba(255,48,59,.2);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 35px;
+      overflow: hidden;
+    }
+
+    .vpn-intro-icon {
+      width: 90px;
+      height: 90px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 25px;
+      background: linear-gradient(145deg, #ff4550, #8c101b);
+      box-shadow: 0 12px 35px rgba(255,48,59,.2);
+    }
+
+    .vpn-intro-icon svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .vpn-intro h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .vpn-intro p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    /* PLANS */
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .plan {
+      position: relative;
+      background: linear-gradient(155deg, #181818, #0d0d0d);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 22px;
+      padding: 30px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .plan:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255,48,59,.55);
+      box-shadow: 0 18px 45px rgba(255,48,59,.09);
+    }
+
+    .plan.featured {
+      border-color: rgba(255,48,59,.45);
+    }
+
+    .plan-glow {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      top: -100px;
+      left: -60px;
+      background: rgba(255,48,59,.14);
+      filter: blur(45px);
+      pointer-events: none;
+    }
+
+    .plan-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .plan-number {
+      font-size: 11px;
+      color: var(--red);
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .plan-tag {
+      background: rgba(255,48,59,.12);
+      border: 1px solid rgba(255,48,59,.25);
+      color: #ff7b82;
+      font-size: 10px;
+      padding: 5px 11px;
+      border-radius: 20px;
+    }
+
+    .plan-visual {
+      height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle, rgba(255,48,59,.14), transparent 65%),
+        #101010;
+    }
+
+    .plan-visual svg {
+      width: 85px;
+      height: 85px;
+      filter: drop-shadow(0 0 18px rgba(255,48,59,.35));
+    }
+
+    .plan h3 {
+      font-size: 23px;
+      margin-bottom: 7px;
+    }
+
+    .plan-description {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 29px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .price span {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .price-period {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .plan-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+
+    .features {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: #ddd;
+      font-size: 13px;
+    }
+
+    .feature-icon {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: rgba(255,48,59,.1);
+      border-radius: 9px;
+      color: var(--red);
+    }
+
+    .feature-icon svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .buy-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(100deg, #ff303b, #b81725);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 7px 25px rgba(255,48,59,.16);
+      transition: .25s;
+    }
+
+    .buy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255,48,59,.32);
+    }
+
+    .buy-button svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    /* SERVICE FEATURES */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 45px;
+    }
+
+    .service {
+      background: #111;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 22px 12px;
+      text-align: center;
+      transition: .25s;
+    }
+
+    .service:hover {
+      border-color: rgba(255,48,59,.4);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 13px;
+      background: rgba(255,48,59,.1);
+      border-radius: 14px;
+      color: var(--red);
+    }
+
+    .service-icon svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .service h4 {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* EMPTY PAGES */
+
+    .empty-state {
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px dashed rgba(255,255,255,.13);
+      background: rgba(255,255,255,.015);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .empty-state svg {
+      width: 55px;
+      height: 55px;
+      color: var(--red);
+      margin-bottom: 20px;
+      opacity: .85;
+    }
+
+    .empty-state h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .empty-state p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 15px;
+      text-align: center;
+      color: #999999;
+      font-size: 12px;
+      letter-spacing: .2px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width: 700px) {
+      .header-inner {
+        min-height: 68px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        padding: 10px 0;
+      }
+
+      nav button {
+        padding: 8px 13px;
+        font-size: 12px;
+      }
+
+      .plans {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .vpn-intro {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .page {
+        padding-top: 35px;
+      }
+    }
+
+    @media(max-width: 360px) {
+      nav button {
+        padding: 7px 9px;
+      }
+
+      .plan {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container navbar">
-    <a href="#" class="logo">NGN<span>845</span></a>
+  <header>
+    <div class="container header-inner">
+      <a href="#home" class="logo" onclick="showPage('home')">NGN845</a>
 
-    <nav class="menu">
-      <button class="active" onclick="showPage('home',this)">خانه</button>
-      <button onclick="showPage('projects',this)">پروژه‌ها</button>
-      <button onclick="showPage('vpn',this)">خرید VPN</button>
-    </nav>
+      <nav>
+        <button class="active" data-page="home" onclick="showPage('home')">خانه</button>
+        <button data-page="projects" onclick="showPage('projects')">پروژه‌ها</button>
+        <button data-page="vpn" onclick="showPage('vpn')">خرید VPN</button>
+      </nav>
+    </div>
+  </header>
 
-    <div class="status">● ONLINE PLATFORM</div>
-  </div>
-</header>
+  <main class="container">
 
-<main class="container">
-
-  <!-- HOME -->
-  <section id="home" class="page active">
-    <div class="empty">
-      <div class="empty-content">
-        <div class="empty-icon">⌘</div>
-        <h1>به NGN845 خوش آمدید</h1>
-        <p>این بخش در حال آماده‌سازی است.</p>
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-label">WELCOME TO NGN845</div>
+        <h1>NGN<span>845</span></h1>
+        <p>
+          دنیای تکنولوژی، ابزارهای دیجیتال و خدمات آنلاین
+          <br>
+          آینده را هوشمندانه‌تر تجربه کن.
+        </p>
+        <div class="hero-line"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="page">
-    <div class="empty">
-      <div class="empty-content">
-        <div class="empty-icon">💻</div>
-        <h1>پروژه‌های NGN845</h1>
-        <p>پروژه‌های ما به‌زودی در این قسمت معرفی خواهند شد.</p>
+    <!-- PROJECTS -->
+    <section id="projects" class="page">
+      <div class="section-title">
+        <h2>پروژه‌های <span>ما</span></h2>
+        <p>محصولات و پروژه‌های دیجیتال NGN845</p>
       </div>
-    </div>
-  </section>
 
-  <!-- VPN -->
-  <section id="vpn" class="page">
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="4" width="18" height="16" rx="3"/>
+          <path d="M8 9h8M8 13h5"/>
+          <path d="m15 17 2 2 4-4"/>
+        </svg>
+        <h3>به‌زودی...</h3>
+        <p>پروژه‌های جدید ما در این بخش معرفی خواهند شد.</p>
+      </div>
+    </section>
 
-    <div class="hero">
-      <div class="globe">🌍</div>
-      <div class="hero-tag">NGN845 / DIGITAL SERVICES</div>
-      <h1>خرید <span>VPN</span></h1>
-      <p>
-        سرویس‌های مولتی‌لوکیشن NGNVPN با پلن‌های متنوع
-        برای انتخاب متناسب با نیاز شما.
-      </p>
-    </div>
-
-    <div class="plans">
-
-      <!-- PLAN 01 -->
-      <article class="plan">
-        <div class="plan-top">
-          <span class="plan-number">PLAN 01 / VOLUME</span>
-          <div class="plan-icon">📦</div>
-        </div>
-
-        <h2>پلن حجمی</h2>
-        <p class="plan-desc">۱۰۰ گیگابایت حجم مصرفی</p>
-
-        <div class="price">
-          <strong>۲۵۰,۰۰۰</strong>
-          <span>تومان / یک ماه</span>
-        </div>
-
-        <ul class="features">
-          <li><span class="check">✓</span> حجم ۱۰۰ گیگابایت</li>
-          <li><span class="check">✓</span> تعداد کاربران نامحدود</li>
-          <li><span class="check">✓</span> اعتبار یک ماهه</li>
-          <li><span class="check">✓</span> لوکیشن‌های متنوع</li>
-        </ul>
-
-        <div class="buy">
-          <p>برای اطلاعات بیشتر درباره این پلن:</p>
-          <a class="buy-btn" href="https://t.me/ngnvpn_bot" target="_blank" rel="noopener noreferrer">
-            🤖 مشاهده ربات NGNVPN
-          </a>
-        </div>
-      </article>
-
-      <!-- PLAN 02 -->
-      <article class="plan">
-        <div class="plan-top">
-          <span class="plan-number">PLAN 02 / UNLIMITED</span>
-          <div class="plan-icon">♾️</div>
-        </div>
-
-        <h2>پلن نامحدود</h2>
-        <p class="plan-desc">بدون محدودیت حجم مصرفی</p>
-
-        <div class="price">
-          <strong>۳۵۰,۰۰۰</strong>
-          <span>تومان / یک ماه</span>
-        </div>
-
-        <ul class="features">
-          <li><span class="check">✓</span> حجم مصرفی نامحدود</li>
-          <li><span class="check">✓</span> مخصوص یک کاربر</li>
-          <li><span class="check">✓</span> اعتبار یک ماهه</li>
-          <li><span class="check">✓</span> لوکیشن‌های متنوع</li>
-        </ul>
-
-        <div class="buy">
-          <p>برای اطلاعات بیشتر درباره این پلن:</p>
-          <a class="buy-btn secondary" href="https://t.me/nima_001" target="_blank" rel="noopener noreferrer">
-            💬 ارتباط با پشتیبانی
-          </a>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- FEATURES -->
-    <section class="features-section">
+    <!-- VPN -->
+    <section id="vpn" class="page">
 
       <div class="section-title">
-        <h2>ویژگی‌های سرویس</h2>
-        <p>امکانات و خدمات ارائه‌شده برای کاربران</p>
+        <h2>خرید <span>VPN</span></h2>
+        <p>پلن موردنظر خود را انتخاب کنید</p>
       </div>
 
-      <div class="service-features">
-
-        <div class="service-item">
-          <div class="icon">🌐</div>
-          <h3>لوکیشن‌های متنوع</h3>
-          <p>انتخاب موقعیت‌های مختلف</p>
+      <div class="vpn-intro">
+        <div class="vpn-intro-icon">
+          <!-- Shield illustration -->
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M32 5 53 13v16c0 14-9 24-21 30C20 53 11 43 11 29V13L32 5Z"
+              stroke="white" stroke-width="3" stroke-linejoin="round"/>
+            <path d="m22 32 7 7 14-15"
+              stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32 14v5" stroke="white" stroke-width="2" opacity=".6"/>
+          </svg>
         </div>
 
-        <div class="service-item">
-          <div class="icon">⚡</div>
-          <h3>سرعت بالا</h3>
-          <p>تجربه اتصال سریع</p>
+        <div>
+          <h3>اتصال هوشمند، تجربه‌ای متفاوت</h3>
+          <p>
+            پلن‌های مختلف را بررسی کنید و متناسب با نیاز خود انتخاب کنید.
+            برای دریافت اطلاعات و ثبت سفارش از طریق تلگرام اقدام کنید.
+          </p>
+        </div>
+      </div>
+
+      <div class="plans">
+
+        <!-- PLAN 01 -->
+        <article class="plan">
+          <div class="plan-glow"></div>
+
+          <div class="plan-top">
+            <span class="plan-number">PLAN 01 / VOLUME</span>
+            <span class="plan-tag">حجمی</span>
+          </div>
+
+          <div class="plan-visual">
+            <!-- Data storage illustration -->
+            <svg viewBox="0 0 100 100" fill="none">
+              <ellipse cx="50" cy="24" rx="29" ry="11"
+                fill="#ff303b" fill-opacity=".2" stroke="#ff5963" stroke-width="2"/>
+              <path d="M21 24v48c0 6 13 11 29 11s29-5 29-11V24"
+                stroke="#ff5963" stroke-width="2.5"/>
+              <path d="M21 40c0 6 13 11 29 11s29-5 29-11M21 56c0 6 13 11 29 11s29-5 29-11"
+                stroke="#ff5963" stroke-width="2"/>
+              <path d="M50 16v58m-8-8 8 8 8-8"
+                stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <h3>پلن ۱۰۰ گیگابایت</h3>
+          <p class="plan-description">مناسب استفاده حجمی</p>
+
+          <div class="price">۲۵۰,۰۰۰ <span>تومان</span></div>
+          <div class="price-period">اعتبار یک ماه</div>
+
+          <div class="plan-divider"></div>
+
+          <div class="features">
+            <div class="feature">
+              <span class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18M3 12h18"/>
+                  <circle cx="12" cy="12" r="9"/>
+                </svg>
+              </span>
+              حجم ۱۰۰ گیگابایت
+            </div>
+
+            <div class="feature">
+              <span class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>
+                </svg>
+              </span>
+              چندین لوکیشن
+            </div>
+
+            <div class="feature">
+              <span class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2v20M17 7H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </span>
+              کاربران نامحدود
+            </div>
+
+            <div class="feature">
+              <span class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+              </span>
+              اعتبار یک ماهه
+            </div>
+          </div>
+
+          <a class="buy-button" href="https://t.me/ngnvpn_bot" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="m22 2-7 20-4-9-9-4 20-7Z"/>
+              <path d="M22 2 11 13"/>
+            </svg>
+            سفارش از طریق ربات
+          </a>
+        </article>
+
+        <!-- PLAN 02 -->
+        <article class="plan featured">
+          <div class="plan-glow"></div>
+
+          <div class="plan-top">
+            <span class="plan-number">PLAN 02 / UNLIMITED</span>
+            <span class="plan-tag">نامحدود</span>
+          </div>
+
+          <div class="plan-visual">
+            <!-- Globe illustration -->
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="34"
+                stroke="#ff5963" stroke-width="2.5"/>
+              <ellipse cx="50" cy="50" rx="15" ry="34"
+                stroke="#ff5963" stroke-width="2"/>
+              <path d="M17 50h66M24 32h52M24 68h52"
+                stroke="#ff5963" stroke-width="2"/>
+              <path d="m43 49 6 6 12-14"
+                stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="50" cy="50" r="43"
+                stroke="#ff303b" stroke-opacity=".2" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <h3>پلن نامحدود</h3>
+          <p class="plan-description">بدون محدودیت حجم مصرفی</p>
+
+          <div class="price">۳۵۰,۰۰۰ <span>تومان</span></div>
+          <div class="price-period">اعتبار یک ماه</div>
+
+          <div class="plan-divider"></div>
+
+          <div class="features">
+            <div class="feature">
+              <span class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18M3 12h18"/>
+                  <circle cx="12" cy="12" r="9"/>
+                </svg>
+              </span>
+              حجم نامحدود
+            </div>
+
+            <div class="feature">
+              <span class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3 2"/>
+                </svg>
+              </span>
+              یک کاربر
+            </div>
+
+            <div class="feature">
+              <span class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>
+                </svg>
+              </span>
+              چندین لوکیشن
+            </div>
+
+            <div class="feature">
+              <span class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2v20M17 7H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </span>
+              اعتبار یک ماهه
+            </div>
+          </div>
+
+          <a class="buy-button" href="https://t.me/nima_001" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="m22 2-7 20-4-9-9-4 20-7Z"/>
+              <path d="M22 2 11 13"/>
+            </svg>
+            سفارش از طریق تلگرام
+          </a>
+        </article>
+
+      </div>
+
+      <!-- SERVICES -->
+      <div class="service-grid">
+
+        <div class="service">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>
+            </svg>
+          </div>
+          <h4>لوکیشن‌های متنوع</h4>
         </div>
 
-        <div class="service-item">
-          <div class="icon">🔒</div>
-          <h3>اتصال پایدار</h3>
-          <p>توجه به کیفیت ارتباط</p>
+        <div class="service">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 12h4l3-8 5 16 3-8h5"/>
+            </svg>
+          </div>
+          <h4>سرعت بالا</h4>
         </div>
 
-        <div class="service-item">
-          <div class="icon">🎧</div>
-          <h3>ارتباط و راهنمایی</h3>
-          <p>پاسخگویی و پشتیبانی</p>
+        <div class="service">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-3Z"/>
+              <path d="m8 12 3 3 5-6"/>
+            </svg>
+          </div>
+          <h4>اتصال پایدار</h4>
+        </div>
+
+        <div class="service">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 11.5a8.5 8.5 0 0 1-9 8.5 9 9 0 0 1-4-.9L3 21l1.9-4.5A8.5 8.5 0 1 1 21 11.5Z"/>
+              <path d="M8 12h8M12 8v8"/>
+            </svg>
+          </div>
+          <h4>پشتیبانی</h4>
         </div>
 
       </div>
     </section>
 
-  </section>
+  </main>
 
-</main>
+  <footer>
+    NGN845 | تمامی حقوق محفوظ است.
+  </footer>
 
-<footer>
-  <div class="container">
-    © 2026 <strong>NGN845</strong> — تمامی حقوق محفوظ است.
-  </div>
-</footer>
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
 
-<script>
-function showPage(pageId, button) {
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
+      document.querySelectorAll('nav button').forEach(button => {
+        button.classList.remove('active');
+      });
 
-  document.querySelectorAll('.menu button').forEach(btn => {
-    btn.classList.remove('active');
-  });
+      const selectedPage = document.getElementById(pageId);
 
-  document.getElementById(pageId).classList.add('active');
-  button.classList.add('active');
+      if (selectedPage) {
+        selectedPage.classList.add('active');
+      }
 
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+      const selectedButton = document.querySelector(
+        'nav button[data-page="' + pageId + '"]'
+      );
 
-  history.replaceState(null, '', '#' + pageId);
-}
+      if (selectedButton) {
+        selectedButton.classList.add('active');
+      }
 
-// باز کردن مستقیم هر بخش با آدرس
-window.addEventListener('DOMContentLoaded', () => {
-  const pageId = location.hash.replace('#', '');
-  const validPages = ['home', 'projects', 'vpn'];
+      history.replaceState(null, '', '#' + pageId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-  if (validPages.includes(pageId)) {
-    const buttons = document.querySelectorAll('.menu button');
-    const index = validPages.indexOf(pageId);
-
-    showPage(pageId, buttons[index]);
-  }
-});
-</script>
+    window.addEventListener('load', () => {
+      const page = location.hash.replace('#', '');
+      if (['home', 'projects', 'vpn'].includes(page)) {
+        showPage(page);
+      }
+    });
+  </script>
 
 </body>
 </html>
