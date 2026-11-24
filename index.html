@@ -1,23 +1,23 @@
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#080808">
 
     <title>NGN845 | By Nima</title>
-    <meta name="description" content="NGN845 - Technology, AI, Android and digital projects.">
 
-    <!-- Favicon -->
+    <meta name="description" content="NGN845 | By Nima - Technology, AI, Android, VPN and digital projects.">
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -25,32 +25,454 @@
 
     <!-- HEADER -->
     <header id="header">
+        <div class="container header-inner">
+
+            <a href="#home" class="logo" onclick="showPage('home')">
+                NGN845
+            </a>
+
+            <div class="header-actions">
+
+                <nav>
+                    <button class="active" data-page="home" onclick="showPage('home')">
+                        خانه
+                    </button>
+
+                    <button data-page="projects" onclick="showPage('projects')">
+                        پروژه‌ها
+                    </button>
+
+                    <button data-page="vpn" onclick="showPage('vpn')">
+                        خرید VPN
+                    </button>
+
+                    <button data-page="contact" onclick="showPage('contact')">
+                        ارتباط با من
+                    </button>
+                </nav>
+
+                <button id="themeToggle" class="theme-toggle"
+                    onclick="toggleTheme()" title="تغییر تم">
+                    ☀️
+                </button>
+
+            </div>
+        </div>
     </header>
 
-    <!-- MAIN CONTENT -->
+
+    <!-- MAIN -->
     <main id="main">
 
-        <!-- HOME -->
+        <!-- HOME PAGE -->
         <section id="home" class="page active">
+
+            <div class="container">
+
+                <div class="hero">
+
+                    <div class="hero-label">
+                        WELCOME TO NGN845
+                    </div>
+
+                    <h1>
+                        NGN<span>845</span>
+                    </h1>
+
+                    <p>
+                        پشت هر کلیک، یه داستانه!<br>
+                        اینجا چیزای عادی، خیلی عادی نمی‌مونن.<br>
+                        اینجا کنجکاوی، سرگرمی خطرناکیه.<br>
+                        هر کلیک، یه غافلگیری تازه! 🔥
+                    </p>
+
+                    <div class="hero-line"></div>
+
+                </div>
+
+                <div class="section-title">
+                    <h2>به دنیای <span>NGN845</span> خوش اومدی</h2>
+                    <p>پروژه‌ها و بخش‌های مختلف رو کشف کن</p>
+                </div>
+
+                <div class="card-grid">
+
+                    <div class="big-card" onclick="showPage('projects')">
+                        <div class="card-icon">💻</div>
+                        <h3>پروژه‌ها</h3>
+                        <p>
+                            نرم‌افزارها، ابزارها و پروژه‌های دیجیتال ساخته‌شده در NGN845.
+                        </p>
+                        <span class="card-arrow">مشاهده پروژه‌ها ←</span>
+                    </div>
+
+                    <div class="big-card" onclick="showPage('vpn')">
+                        <div class="card-icon">🌐</div>
+                        <h3>سرویس VPN</h3>
+                        <p>
+                            مشاهده پلن‌ها و اطلاعات سرویس VPN.
+                        </p>
+                        <span class="card-arrow">مشاهده پلن‌ها ←</span>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
 
-        <!-- PROJECTS -->
+
+        <!-- PROJECTS PAGE -->
         <section id="projects" class="page">
+
+            <div class="container">
+
+                <!-- PROJECTS MAIN -->
+                <div id="projectsMain" class="subpage active">
+
+                    <div class="section-title">
+                        <h2>پروژه‌های <span>NGN845</span></h2>
+                        <p>ایده‌ها به پروژه تبدیل می‌شن!</p>
+                    </div>
+
+                    <div class="card-grid">
+
+                        <div class="big-card" onclick="showProjectView('apps')">
+                            <div class="card-icon">📱</div>
+                            <h3>نرم‌افزارها</h3>
+                            <p>
+                                معرفی اپلیکیشن‌ها و ابزارهای ساخته‌شده توسط NGN845.
+                            </p>
+                            <span class="card-arrow">مشاهده نرم‌افزارها ←</span>
+                        </div>
+
+                        <div class="big-card" onclick="showProjectView('lab')">
+                            <div class="card-icon">🧪</div>
+                            <h3>آزمایشگاه</h3>
+                            <p>
+                                آموزش‌ها، آزمایش‌ها و پروژه‌های دنیای کامپیوتر.
+                            </p>
+                            <span class="card-arrow">ورود به آزمایشگاه ←</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- APPS SUBPAGE -->
+                <div id="apps" class="subpage">
+
+                    <button class="back-button" onclick="showProjectView('main')">
+                        → بازگشت به پروژه‌ها
+                    </button>
+
+                    <div class="sub-title">
+                        <h2>نرم‌افزارهای <span>NGN845</span></h2>
+                        <p>اپلیکیشن‌هایی برای ساده‌تر کردن کارهای روزمره.</p>
+                    </div>
+
+                    <div class="app-card">
+
+                        <div class="app-icon">P</div>
+
+                        <div class="app-info">
+                            <h3>Poolyar</h3>
+                            <p>
+                                مدیریت درآمد، هزینه‌ها و امور مالی شخصی.
+                            </p>
+                            <span class="app-status">
+                                معرفی و انتشار به‌زودی
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="notice">
+                        نرم‌افزارهای بیشتری در آینده به این بخش اضافه خواهند شد.
+                    </div>
+
+                </div>
+
+
+                <!-- LAB SUBPAGE -->
+                <div id="lab" class="subpage">
+
+                    <button class="back-button" onclick="showProjectView('main')">
+                        → بازگشت به پروژه‌ها
+                    </button>
+
+                    <div class="sub-title">
+                        <h2>آزمایشگاه <span>NGN845</span></h2>
+                        <p>
+                            وارد دنیای سیستم‌عامل‌ها، کامپیوتر و تکنولوژی شو.
+                        </p>
+                    </div>
+
+                    <div class="os-grid">
+
+                        <div class="os-card locked">
+                            <div class="os-icon">🤖</div>
+                            <h3>Android</h3>
+                            <p>آموزش‌ها و پروژه‌های اندروید</p>
+                            <span class="status status-soon">
+                                به‌زودی
+                            </span>
+                        </div>
+
+                        <div class="os-card active"
+                            onclick="showProjectView('windows')">
+
+                            <div class="os-icon">🪟</div>
+                            <h3>Windows</h3>
+                            <p>آموزش و پروژه‌های ویندوز</p>
+                            <span class="status status-active">
+                                فعال
+                            </span>
+                        </div>
+
+                        <div class="os-card locked">
+                            <div class="os-icon">🐧</div>
+                            <h3>Linux</h3>
+                            <p>آموزش و پروژه‌های لینوکس</p>
+                            <span class="status status-soon">
+                                به‌زودی
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WINDOWS SUBPAGE -->
+                <div id="windows" class="subpage">
+
+                    <button class="back-button" onclick="showProjectView('lab')">
+                        → بازگشت به آزمایشگاه
+                    </button>
+
+                    <div class="sub-title">
+                        <h2>آزمایشگاه <span>Windows</span></h2>
+                        <p>آموزش‌ها و پروژه‌های سیستم‌عامل ویندوز.</p>
+                    </div>
+
+                    <div class="lesson-card">
+
+                        <span class="lesson-label">اولین پروژه</span>
+
+                        <h3>اولین برنامه Batch</h3>
+
+                        <p>
+                            این یک نمونه ساده از فایل Batch است که چند پیام را در محیط CMD نمایش می‌دهد.
+                        </p>
+
+                        <pre class="code-sample"><code>@echo off
+echo Welcome to NGN845 LAB!
+echo This is my first Batch project.
+pause</code></pre>
+
+                    </div>
+
+                    <div class="notice">
+                        آموزش‌ها و پروژه‌های بیشتری به‌زودی اضافه می‌شوند.
+                    </div>
+
+                </div>
+
+            </div>
         </section>
 
-        <!-- VPN -->
+
+        <!-- VPN PAGE -->
         <section id="vpn" class="page">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>سرویس <span>VPN</span></h2>
+                    <p>پلن موردنظرت رو انتخاب کن.</p>
+                </div>
+
+                <div class="vpn-intro">
+
+                    <div class="vpn-intro-icon">🌐</div>
+
+                    <div>
+                        <h3>NGN845 VPN</h3>
+                        <p>
+                            مشاهده پلن‌ها و دریافت اطلاعات سرویس از طریق ربات و تلگرام.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="plans">
+
+                    <!-- PLAN 1 -->
+                    <div class="plan">
+
+                        <div class="plan-top">
+                            <span class="plan-number">PLAN 01</span>
+                            <span class="plan-tag">100 GB</span>
+                        </div>
+
+                        <h3>پلن ۱۰۰ گیگابایت</h3>
+
+                        <p class="plan-description">
+                            مناسب استفاده یک‌ماهه
+                        </p>
+
+                        <div class="price">
+                            ۲۵۰,۰۰۰
+                            <span>تومان</span>
+                        </div>
+
+                        <div class="price-period">
+                            اعتبار یک ماه
+                        </div>
+
+                        <div class="features">
+                            <div class="feature">۱۰۰ گیگابایت حجم</div>
+                            <div class="feature">چند لوکیشن</div>
+                            <div class="feature">کاربران نامحدود</div>
+                        </div>
+
+                        <a href="https://t.me/ngnvpn_bot"
+                            class="buy-button" target="_blank" rel="noopener noreferrer">
+                            دریافت از ربات تلگرام
+                        </a>
+
+                    </div>
+
+
+                    <!-- PLAN 2 -->
+                    <div class="plan featured">
+
+                        <div class="plan-top">
+                            <span class="plan-number">PLAN 02</span>
+                            <span class="plan-tag">UNLIMITED</span>
+                        </div>
+
+                        <h3>پلن نامحدود</h3>
+
+                        <p class="plan-description">
+                            مناسب استفاده یک‌ماهه
+                        </p>
+
+                        <div class="price">
+                            ۳۵۰,۰۰۰
+                            <span>تومان</span>
+                        </div>
+
+                        <div class="price-period">
+                            اعتبار یک ماه
+                        </div>
+
+                        <div class="features">
+                            <div class="feature">حجم نامحدود</div>
+                            <div class="feature">یک کاربر</div>
+                            <div class="feature">چند لوکیشن</div>
+                        </div>
+
+                        <a href="https://t.me/nima_001"
+                            class="buy-button" target="_blank" rel="noopener noreferrer">
+                            ارتباط در تلگرام
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="telegram-channel">
+
+                    <h3>کانال تلگرام NGN845</h3>
+
+                    <p>
+                        برای دریافت اطلاعیه‌ها و اخبار سرویس، عضو کانال شو.
+                    </p>
+
+                    <a href="https://t.me/ngnvpn"
+                        target="_blank" rel="noopener noreferrer">
+                        ورود به کانال تلگرام
+                    </a>
+
+                </div>
+
+            </div>
         </section>
 
-        <!-- CONTACT -->
+
+        <!-- CONTACT PAGE -->
         <section id="contact" class="page">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>ارتباط با <span>من</span></h2>
+                    <p>از راه‌های زیر می‌تونی با من در ارتباط باشی.</p>
+                </div>
+
+                <div class="contact-wrapper">
+
+                    <span class="contact-tag">GET IN TOUCH</span>
+
+                    <h2>NGN<span>845</span></h2>
+
+                    <p class="contact-description">
+                        برای ارتباط، پیشنهاد، همکاری و پیگیری پروژه‌ها
+                        از طریق شبکه‌های اجتماعی با من در تماس باش.
+                    </p>
+
+                    <div class="contact-buttons">
+
+                        <a href="https://instagram.com/nima.001n"
+                            class="contact-button"
+                            target="_blank" rel="noopener noreferrer">
+
+                            <span>◎</span>
+
+                            <span class="contact-button-text">
+                                <strong>Instagram</strong>
+                                <small>@nima.001n</small>
+                            </span>
+
+                        </a>
+
+                        <a href="https://t.me/nima_001"
+                            class="contact-button"
+                            target="_blank" rel="noopener noreferrer">
+
+                            <span>➤</span>
+
+                            <span class="contact-button-text">
+                                <strong>Telegram</strong>
+                                <small>@nima_001</small>
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                    <div class="contact-bottom">
+                        LEARN. CREATE. <span>LEVEL UP.</span>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
 
     </main>
 
+
     <!-- FOOTER -->
     <footer id="footer">
+        <div class="container">
+            NGN845 | By Nima | تمامی حقوق محفوظ است.
+        </div>
     </footer>
+
 
     <!-- JAVASCRIPT -->
     <script src="js/navigation.js"></script>
@@ -58,4 +480,5 @@
     <script src="js/app.js"></script>
 
 </body>
-</html>
+                                                     </html>
+                                                     
