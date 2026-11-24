@@ -763,3 +763,10 @@ footer {
   .contact-buttons {grid-template-columns:1fr;}
   .big-card {padding:23px;}
 }
+.ngnvpn-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+}
