@@ -1,10 +1,23 @@
 // ========================================
 // NGN845 | By Nima
-// Main Application
+// MAIN APPLICATION
 // ========================================
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener('load', () => {
 
-    console.log("NGN845 | By Nima is ready!");
+    const page = location.hash.replace('#', '');
+
+    const validPages = [
+        'home',
+        'projects',
+        'vpn',
+        'contact'
+    ];
+
+    if (validPages.includes(page)) {
+        showPage(page);
+    }
+
+    console.log('NGN845 | By Nima is ready!');
 
 });
