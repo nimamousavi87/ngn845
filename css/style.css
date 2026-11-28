@@ -1,5 +1,4 @@
 
-
 :root {
   --bg:#080808;
   --panel:#111111;
@@ -234,13 +233,16 @@ nav button.active {
 .big-card .card-icon {
   width:62px;
   height:62px;
-  display:grid;
-  place-items:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border-radius:17px;
   background:rgba(255,48,59,.1);
   color:var(--red);
   font-size:30px;
   margin-bottom:22px;
+  overflow:hidden;
+  padding:0;
 }
 
 .big-card h3 {
@@ -260,6 +262,27 @@ nav button.active {
   color:var(--red);
   font-size:12px;
   font-weight:700;
+}
+
+/* PROJECT LOGO */
+.projects-card-image {
+  width:48px;
+  height:48px;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  display:block;
+  flex-shrink:0;
+  margin:auto;
+}
+
+/* NGNVPN IMAGE */
+.ngnvpn-card-image {
+  width:48px;
+  height:48px;
+  object-fit:cover;
+  border-radius:12px;
+  display:block;
 }
 
 /* PROJECT SUBPAGES */
@@ -762,28 +785,4 @@ footer {
 @media(max-width:420px) {
   .contact-buttons {grid-template-columns:1fr;}
   .big-card {padding:23px;}
-}
-.ngnvpn-card-image {
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
-}
-
-.big-card .card-icon {
-    width: 62px;
-    height: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 0;
-}
-.projects-card-image {
-    width: 62px;
-    height: 62px;
-    object-fit: cover;
-    display: block;
-    margin: auto;
 }
