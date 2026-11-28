@@ -781,9 +781,9 @@ footer {
     padding: 0;
 }
 .projects-card-image {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
+    width: 62px;
+    height: 62px;
+    object-fit: cover;
     display: block;
     margin: auto;
 }
